@@ -1,0 +1,14 @@
+.myMain{
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-top:80px;
+ }
+ 
+ /* PATIENT REGISTRATIN FORM */
+ label {
+  
+    color: #555;
+ }
+ .danger{
+   color:red;
+ }

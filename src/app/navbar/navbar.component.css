@@ -1,0 +1,48 @@
+
+  .padding1rem {
+    padding: 1rem;
+  }
+  
+  .paddingRight2rem {
+    padding: 0 2rem 0 0;
+  }
+  
+
+  a {
+    color: white;
+  }
+  
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .floatLeft {
+    float: left;
+  }
+  
+  .floatRight {
+    float: right;
+  }
+  
+  .bar {
+    color: white;
+    background-color: #4a4e54;
+    line-height: 4rem;
+    margin-top: 0px;
+    border: 1px solid grey;
+    position: fixed;
+  top: 0;
+  width: 100%;
+    z-index: 3;
+  }
+  a{
+    text-decoration: none;
+  }
+ 
+  
+  
+  
+  

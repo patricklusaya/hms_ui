@@ -1,0 +1,86 @@
+<div class="myMain">
+
+    <div class="container jumbotron text-center">
+  <div class="card-header">
+    <h4>Please Sign In</h4>
+ </div>
+    <form
+    *ngIf="!isLoggedIn"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+ 
+    <div class="col">
+      <br>
+      <div class="row">
+  
+        <p align="center">
+            <input   type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+            placeholder="Username"
+            >
+        
+        </p>
+        <p
+        class="alerty"
+        role="alert"
+        *ngIf="username.errors && f.submitted"
+      >
+        Username is required!
+    </p>
+      </div>
+      <div class="row">
+        <p align="center">
+            <input type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel" placeholder="Password" ></p>
+            <div
+            class="alerty"
+            role="alert"
+            *ngIf="password.errors && f.submitted"
+          >
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Login
+        </button>
+      </div>
+      <div class="form-group">
+        <p
+          class="alerty"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+         Something went wrong 😥 :  {{ errorMessage }}
+      </p>
+      </div>
+        <p><a href="">Forgot password?</a></p>
+  
+  
+    </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}.
+      </div>
+    </div>
+  </div>
+  
+
+
+

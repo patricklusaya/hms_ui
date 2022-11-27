@@ -1,0 +1,106 @@
+
+<div class="container" style="margin-top: 40px;">
+  <div class="myMain">
+    <h2>New Registration <span><i class="fa fa-medkit" style="color: rgb(127, 185, 117);"></i></span> </h2>
+    <hr>
+  
+    <form>
+
+      <div class="container">
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
+        <div *ngIf="!isSuccessful">
+          
+          <div class="row jumbotron">
+            <p style="font-weight: bold;">Care Recepient Particulars</p>
+            <div class="col-sm-6 form-group">
+              <label for="name-f">Full Name</label>
+              <input type="text" class="form-control" id="name-f" placeholder="" name="fullname"
+                [(ngModel)]="patient.fullname" required>
+
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="name-l">Age</label>
+              <input type="number" class="form-control" id="name-l" placeholder="" name="age" [(ngModel)]="patient.age"
+                required>
+
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="name-f">Tribe</label>
+              <input type="text" class="form-control" name="tribe" id="name-f" [(ngModel)]="patient.tribe" required>
+
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="name-l">Physical Address</label>
+              <input type="text" class="form-control" name="address" id="name-l" placeholder=""
+                [(ngModel)]="patient.address" required>
+
+            </div>
+
+<div>
+<div class="row">
+
+  <p style="font-weight: bold;padding-top: 10px;">Visit Details</p>
+  <div class="col-sm-6 form-group">
+      <label for="email">Visit name</label>
+      <input type="text" class="form-control"
+       name="visitName" placeholder=""
+       [(ngModel)]="patient.visitName"
+       required
+      >
+        
+  </div>
+  <div class="col-sm-6 form-group">
+    <label for="">Visit Type</label>
+    <select class="form-control custom-select browser-default"
+    name="visitType"
+    [(ngModel)]="patient.visitType"
+     required
+    >
+<option value="Radilogy Visit" >Radiology Visit</option>
+<option value="Laboratory Visit">Laboratory Visit</option>
+<option value="Specialist Visit">Specialist Visit</option>
+<option value="Pharmacy Visit">Pharmacy Visit</option>
+<option value="Physiotherapist Visit">Physiotherapist Visit</option>
+<option value="Nursing Procedures">Nursing Procedures</option>
+<option value="Medical CheckUp">Medical CheckUp</option>   
+
+
+    </select>
+</div>
+  
+</div>
+  <div class="col-sm-12 form-group">
+    <label for="billCat">Bill Category</label>
+    <select class="form-control custom-select browser-default"
+    [(ngModel)]="patient.billCategory"
+    name="billCategory" 
+    >
+      <option *ngFor="let b of billCats" value=" {{b.name}} "> {{b.name}} </option>
+    
+    </select>
+    
+    </div>
+</div>
+
+
+
+            <div class="col-sm-12 form-group mb-0" style="padding-top: 20px;padding-left:70px;margin: auto;width: 50%;">
+              <button class="btn btn-success " 
+               [disabled]="!patient.fullname || !patient.age || !patient.address
+               || !patient.tribe || !patient.visitName || !patient.visitType || !patient.billCategory  "
+               (click)="registerPatient()">Submit</button>
+            </div>
+            <div class="alert alert-warning" *ngIf="isSignUpFailed">
+              Signup failed!<br />{{ errorMessage }}
+            </div>
+          </div>
+        </div>
+     
+      </div>
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,33 @@
+
+.container{
+    
+    padding-top: 60px;
+    margin-top: 20px;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 30%;
+    z-index: 10;
+
+
+}
+a{
+  text-decoration: none;
+}
+input{
+  width: 80%;
+  text-align: center;
+ 
+}
+
+.alerty{
+    color: red;
+}
+
+.fa-user-md{
+  font-size: xx-large;
+  color: rgb(68, 136, 178);
+}
+.myMain{
+margin-top: 100px;
+}
+

@@ -1,0 +1,96 @@
+table {
+    width: 100%;
+    color: green;
+   
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  md-toolbar h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+    margin: auto;
+  }
+ 
+  
+  .table-title {
+    background-color: #5997af;
+    width: 100%;
+    height: 60px;
+    font-weight: 400;
+    padding: 0 0px;
+    margin: 0;
+  }
+  
+  .table-title-text {
+    color: white;
+    font-size: 1em;
+  
+  }
+  
+  .table-header {
+  
+    border-bottom: 1px solid rgb(230, 230, 230);
+    text-align: left;
+   
+    padding: 16px 16px 16px 0;
+  }
+  
+  .table-header,
+  .table-row {
+    color: rgba(140, 140, 140);
+    font-size: 0.75em;
+  }
+  
+  .header-sort,
+  .column-hide {
+    vertical-align: middle;
+  }
+  
+  .search-container {
+    position: relative;
+  }
+  .search-container > input {
+    border: 1px solid black;
+    padding: 10px;
+    bottom: 0;
+    right:0;
+    margin-bottom: 30px;
+    margin-right: 120px;
+  
+  }
+  input {
+    border: 1px solid black;
+    margin-top: 13px;
+    margin-left: 40px;
+    height: 30px;
+    bottom: 0;
+    right:0;
+    margin-right: 120px;
+    
+  }
+  
+  .book-search {
+    margin-top: 60px;
+    align-self: flex-end;
+    width: 300px;
+    
+  }
+  
+  .inline-block {
+    display: inline-block;
+  }
+  .main{
+    margin-left: 22%;
+    margin-right: 18%;
+    margin-top: 80px;
+    
+  }
+  
+  .mybtn{
+  color:rgb(104, 138, 219);
+  border: none;
+  background-color: white;
+  }
