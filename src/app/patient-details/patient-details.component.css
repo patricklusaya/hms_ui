@@ -1,0 +1,51 @@
+
+body{
+    background:#eee;
+    }
+    #text {
+        resize: none;
+        margin-bottom:10px;
+    }
+
+    .actionBtn{
+        margin: auto;
+        margin-top: 20px;
+        margin-left: 40%;
+        width: 50%;
+    }
+  
+
+    
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+  }
+  
+  td:first-of-type {
+    text-align: right;
+  }
+  
+  td:last-of-type {
+    text-align: center;
+  }

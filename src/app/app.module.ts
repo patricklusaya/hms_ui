@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,10 +25,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RegisterPatientComponent } from './register-patient/register-patient.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
+import { NgChartsModule } from 'ng2-charts';
+import { LabRequestsComponent } from './lab-requests/lab-requests.component';
+import { PatientLabDetailsComponent } from './patient-lab-details/patient-lab-details.component';
+import { PatientPhamDetailsComponent } from './patient-pham-details/patient-pham-details.component';
+import { PhamRequestsComponent } from './pham-requests/pham-requests.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
     HomeComponent,
     NavbarComponent,
     LoginComponent,
@@ -36,15 +47,30 @@ import { RegisterPatientComponent } from './register-patient/register-patient.co
     ProfileComponent,
     NotFoundPageComponent,
     PatientsComponent,
-    RegisterPatientComponent
+    RegisterPatientComponent,
+    PatientDetailsComponent,
+    RegisterEmployeeComponent,
+    LabRequestsComponent,
+    PatientLabDetailsComponent,
+    PatientPhamDetailsComponent,
+    PhamRequestsComponent
+   
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
+    NgChartsModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatTabsModule,
+    ReactiveFormsModule,
+    MatIconModule,
     AppMaterialModule,
+  
+   
+    
    
   ],
   providers:  [authInterceptorProviders],

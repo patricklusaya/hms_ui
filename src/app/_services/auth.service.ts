@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs'
 import { TokenStorageService } from './token-storage.service';
+import { Employee } from '../employee';
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = 'http://localhost:8090/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,4 +25,10 @@ export class AuthService {
    isLoggedIn(){
     return !! this.tk.getToken();
    }
+   registerEmployee(employee: Employee): Observable<any>{
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(employee);
+    return this.http.post(AUTH_API + 'register-employee',body , {'headers':headers} )
+  }
+
 }

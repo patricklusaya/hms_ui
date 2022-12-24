@@ -16,7 +16,7 @@
          </span>
     <span class="floatRight paddingRight2rem" *ngIf="isLoggedIn">
        <a routerLink="/profile">
-        <b>{{ username }} </b> <span> <i class="fa  fa-user-md " style="font-size:17px ;"></i></span>
+        <b>{{ fullname }} </b> <span> <i class="fa  fa-user-md " style="font-size:17px ;"></i></span>
        </a>
     </span>
     <span class="floatRight paddingRight2rem"  *ngIf="!isLoggedIn">
@@ -48,7 +48,7 @@
                               <a routerLink="/assigned-inpatients"><i class="fa fa-users"></i>Employees</a>
                           </li>
                           <li>
-                              <a routerLink="/search-patients"><i class="fa fa-plus"></i>Register Employees</a>
+                              <a routerLink="/register-employee"><i class="fa fa-plus"></i>Register Employees</a>
                           </li>
 
                           <li>
@@ -70,7 +70,7 @@
                          
                               </li>
                         <li>
-                            <a routerLink="/home"><i class="fa fa-tachometer"></i>Home</a>
+                            <a routerLink="/piechart"><i class="fa fa-tachometer"></i>Home</a>
                         </li>
                         <li>
                             <a routerLink="/search-patients"><i class="fa fa-bell"></i>Appointments</a>
@@ -105,13 +105,61 @@
                             </li>
                         </ul>
                     </ng-template>
-                <ng-template #lab></ng-template>
+                <ng-template #lab>
+
+                    <ul *ngIf="role ==  'ROLE_LAB' ;else pham" >
+                        <li>
+                            <span style="color:white;padding-left: 20px;">
+                               <i class="fa fa-user-circle fa-2x" style="margin-top: 5px;"></i>
+                                <b>Lab Specialist</b>  </span>
+                            
+                             <p class="user-status">
+                          </p>
+                         
+                              </li>
+                        <li>
+                            <a routerLink="/home"><i class="fa fa-tachometer"></i>Home</a>
+                        </li>
+                        <li>
+                            <a routerLink="/lab-requests"><i class="fa fa-tachometer"></i>Lab Requets</a>
+                        </li>           
+                        <li>
+                            <a  (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+                        </li>
+                    </ul>
+                </ng-template>
+                <ng-template #pham>
+
+                    <ul *ngIf="role ==  'ROLE_PHARMACY' ;else otherole" >
+                        <li>
+                            <span style="color:white;padding-left: 20px;">
+                               <i class="fa fa-user-circle fa-2x" style="margin-top: 5px;"></i>
+                                <b>Pharmacist</b>  </span>
+                            
+                             <p class="user-status">
+                          </p>
+                         
+                              </li>
+                        <li>
+                            <a routerLink="/home"><i class="fa fa-tachometer"></i>Home</a>
+                        </li>
+                        <li>
+                            <a routerLink="/pham-requests"><i class="fa fa-tachometer"></i>Pharmacy Requets</a>
+                        </li>           
+                        <li>
+                            <a  (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+                        </li>
+                    </ul>
+
+                </ng-template>
+                <ng-template #otherole></ng-template>
                 </ng-template>
             </ul>
          
             
             
         </ul>
+       
     </nav>
    <ng-template #other></ng-template>
 </div>

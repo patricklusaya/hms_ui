@@ -1,0 +1,155 @@
+
+<div class="main" style="margin:auto;width: 50%;margin-top: 12%; ">
+  <div class="alert alert-success" *ngIf="isSuccessful" style="margin:auto;width: 60%;">
+    <p>Test posted sucessfully</p>
+  </div>
+  <div class="alert alert-success" *ngIf="isPresSuccessful" style="margin:auto;width: 60%;">
+    <p>Prescribed  sucessfully</p>
+  </div>
+    <mat-tab-group animationDuration="500ms"  color="none">
+      <mat-tab >
+        <ng-template mat-tab-label>
+            <span class="my-custom-class">Patient's Particular</span>
+        </ng-template>
+
+        <div style="margin-top: 30px;" >
+            <p style="color: rgb(121, 182, 120)">Name :</p><p>{{data.fullname}}</p>
+            <p style="color: rgb(47, 145, 46)">Patient ID:</p> <p>  {{data.id}} </p>
+            <p style="color: rgb(121, 182, 120)">Visit Type:</p> <p>  {{data.visitType}} </p>
+            <p style="color: rgb(121, 182, 120)">Age:</p> <p>  {{data.age}} </p>
+        </div>
+      </mat-tab>
+      <mat-tab label="Laboratory Tests" >
+       
+      <div class="allTests" style="margin-top: 30px;">
+        <table>
+          <tr>
+          
+            <th>Date</th>
+            <th>Tests</th>
+            <th>Results</th>
+          </tr>
+          <tr *ngFor="let result of results">
+            
+            <td>{{ result.date }}</td>
+            <td>{{ result.tests}}</td>
+            <td>{{ result.results}}</td>
+          </tr>
+        </table>
+       </div>
+       
+     
+      <div class="container"  style="margin-top: 10px;">
+        <div class="col-md-7">
+        <div class="well">
+
+          <form
+          *ngIf="!isSuccessful"
+          name="form"
+          (ngSubmit)=" onSubmit()"
+          #f="ngForm"
+          novalidate
+        >
+       
+          
+                    
+                 <textarea  type="text"
+                 class="form-control"
+                  name="tests"
+                  [(ngModel)]="form.tests"
+                  required
+                  #tests="ngModel"
+                  placeholder="Type Tests/Diagnosis"
+                  rows="5"
+                  ></textarea>
+              
+
+            <div class="form-group" style="margin-top:20px">
+              <button class="btn btn-success "  [disabled]="!form.tests">
+              Post Test
+              </button>
+            </div>
+           
+        
+             
+        
+        
+         
+          </form>
+    
+         
+          </div>
+          </div>
+          </div>
+          
+
+      </mat-tab>
+      <mat-tab label="Pharmacy Prescription">
+
+        <div class="allTests" style="margin-top: 30px;">
+          <table>
+            <tr>
+            
+              <th>Date</th>
+              <th>Prescription</th>
+              <th>Status</th>
+            </tr>
+            <tr *ngFor="let result of  response">
+              
+              <td>{{ result.date }}</td>
+              <td>{{ result.prescription}}</td>
+              <td *ngIf="  result.status == 'Not dispensed' ">  <p   style="color:red"> {{result.status}} </p></td>
+              <td *ngIf="  result.status == 'Dispensed' ">  <p   style="color:green"> {{result.status}} </p></td>
+            </tr>
+          </table>
+         </div>
+         
+       
+        <div class="container"  style="margin-top: 10px;">
+          <div class="col-md-7">
+          <div class="well">
+  
+            <form
+            *ngIf="!isPresSuccessful"
+            name="preScriptionForm"
+            (ngSubmit)="onPost()"
+            #p="ngForm"
+            novalidate
+          >
+         
+            
+                      
+                   <textarea  type="text"
+                   class="form-control"
+                    name="prescription"
+                    [(ngModel)]="preScriptionForm.prescription"
+                 
+                    #prescription="ngModel"
+                    placeholder="Type Prescription"
+                    rows="5"
+                    ></textarea>
+                
+  
+              <div class="form-group" style="margin-top:20px">
+                <button class="btn btn-success "  [disabled]="!preScriptionForm.prescription">
+                Post Prescription
+                </button>
+              </div>
+             
+          
+               
+          
+          
+           
+            </form>
+      
+           
+            </div>
+            </div>
+            </div>
+            
+      </mat-tab>
+      <mat-tab label="Discharge ">Meds prescribed so far and their current status</mat-tab>
+    </mat-tab-group>
+
+</div>

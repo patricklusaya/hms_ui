@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
+  fullname?: string;
 
 
   constructor(private tokenStorageService: TokenStorageService ,
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit {
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
+      this.fullname = user.fullname;
       
       
     }

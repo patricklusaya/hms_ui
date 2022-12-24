@@ -1,6 +1,36 @@
 <div class="container">
     <header class="jumbotron" >
-      <div style="margin-top: 10%">   <p>{{ content }}</p></div>
-   
+      <div style="margin-top: 10%"> 
+        
+        <!-- <canvas baseChart
+       
+  [type]="'pie'"
+  [datasets]="chartData"
+
+  
+  [options]="chartOptions">
+</canvas> -->
+
+
+<div style="display: block;">
+
+  <div style="width: 440px; height: 440px;margin-left: 33%;" >
+
+ <canvas class="pie-chart"  baseChart  
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [type]="'pie'"
+          
+          >
+        
+        
+        </canvas>
+  </div>
+ 
+</div>
+
+
+
+   </div>
     </header>
   </div>

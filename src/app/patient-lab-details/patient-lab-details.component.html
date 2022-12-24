@@ -1,0 +1,77 @@
+<div class="container" style="margin-top:10% ;">
+
+
+  <table>
+    <tr>
+    
+      <th>Posted On</th>
+      <th>Tests</th>
+      
+      <th>Action</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let result of data">
+      
+      <td>{{ result.date }}</td>
+      <td>{{ result.tests}}</td>
+      
+      <td> <button type="button"  class="btny" data-toggle="modal" data-target="#exampleModalCenter" (click)="handleButtonClick(result)">
+        Examine
+      </button></td>
+      <td *ngIf="result.status ==  'Examined' ">
+    
+       
+        <p   style="color: green;" > {{result.status}}</p>
+        
+
+      </td>
+      <td *ngIf="result.status ==  'Not Examined' ">
+        <p  style="color: red;" >   {{result.status}} </p>
+      </td>
+
+    </tr>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          
+          <div class="modal-body">
+            <div class="card mb-3" >
+              <div class="card-body">
+                <div class="alerty" *ngIf="isSuccessful" style="margin:auto;width: 60%;color:green">
+                  <p>Results posted sucessfully</p>
+                </div>
+                <form  *ngIf="!isSuccessful"
+                name="form"
+                (ngSubmit)=" onSubmit()"
+               
+                #f="ngForm"
+                novalidate >
+              
+                <textarea  placeholder="Enter test results here" name="results"
+                [(ngModel)]="form.results"
+                required
+                #tests="ngModel"></textarea>
+                <button class="btn btn-primary mt-3"  [disabled]="!form.results">Save Results</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </table>
+
+    <!-- <h1>Lab Specialist Panel</h1>
+  
+    <div class="card mb-3" *ngFor="let result of data">
+      <div class="card-body">
+        <h5 class="card-title">{{ result.tests}}</h5>
+        <p class="card-text"><strong>Prescribed by:</strong> {{ result.postedBy }}</p>
+        <p class="card-text"><strong>Patient ID:</strong> {{ result.patientId }}</p>
+        <textarea  placeholder="Enter test results here"></textarea>
+        <button class="btn btn-primary mt-3" >Save Results</button>
+      </div>
+    </div> -->
+  </div>
+  

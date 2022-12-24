@@ -47,7 +47,7 @@ roles : string [] =  [ ];
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.router.navigate(['/home']).then(()=> window.location.reload());
+        this.router.navigate(['/piechart']).then(()=> window.location.reload());
         
       },
       err => {

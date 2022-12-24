@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 import { Patient } from '../patient';
 import { UserService } from '../_services/user.service';
 
@@ -23,7 +24,7 @@ export class PatientsComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,  private _route: ActivatedRoute) { }
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
@@ -31,6 +32,7 @@ export class PatientsComponent implements OnInit {
    this.getPatients();
    this.dataSource.paginator=this.paginator;
    this.dataSource.sort = this.sort;
+
   }
  
   getPatients() {
